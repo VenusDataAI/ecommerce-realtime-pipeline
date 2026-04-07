@@ -1,0 +1,65 @@
+version: 2
+
+sources:
+  - name: bronze
+    description: "Raw ingested events from the Kinesis consumer"
+    schema: bronze
+    tables:
+      - name: raw_order_events
+        description: "Raw order events (placed, cancelled, refunded)"
+        columns:
+          - name: event_id
+            description: "Unique event identifier"
+            data_tests:
+              - not_null
+              - unique
+          - name: order_id
+            description: "Order identifier"
+            data_tests:
+              - not_null
+          - name: event_type
+            description: "Order lifecycle stage"
+            data_tests:
+              - not_null
+              - accepted_values:
+                  values: ["order_placed", "order_cancelled", "order_refunded"]
+          - name: total_amount
+            description: "Order total after discounts"
+          - name: _ingested_at
+            description: "Timestamp when this record was ingested by the pipeline"
+            data_tests:
+              - not_null
+
+      - name: raw_session_events
+        description: "Raw session events (session_start, page_view, session_end)"
+        columns:
+          - name: event_id
+            description: "Unique event identifier"
+            data_tests:
+              - not_null
+              - unique
+          - name: event_type
+            data_tests:
+              - not_null
+              - accepted_values:
+                  values: ["session_start", "page_view", "session_end"]
+          - name: _ingested_at
+            data_tests:
+              - not_null
+
+      - name: raw_cart_events
+        description: "Raw cart interaction events"
+        columns:
+          - name: event_id
+            description: "Unique event identifier"
+            data_tests:
+              - not_null
+              - unique
+          - name: event_type
+            data_tests:
+              - not_null
+              - accepted_values:
+                  values: ["add_to_cart", "remove_from_cart", "cart_abandoned"]
+          - name: _ingested_at
+            data_tests:
+              - not_null

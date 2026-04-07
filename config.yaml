@@ -1,0 +1,65 @@
+pipeline:
+  name: ecommerce-realtime-pipeline
+  version: "0.1.0"
+  environment: local  # local | staging | production
+
+kinesis:
+  stream_name: ecommerce-events
+  region: us-east-1
+  shard_count: 4
+  # Set KINESIS_MODE=local to bypass real Kinesis (default: local)
+  mode: "${KINESIS_MODE:-local}"
+
+producer:
+  events_per_second: 100
+  order_ratio: 0.10
+  session_ratio: 0.60
+  cart_ratio: 0.30
+  abandonment_rate: 0.70
+  batch_size: 500
+
+consumer:
+  flush_size: 500
+  flush_interval_seconds: 30
+  poll_interval_seconds: 1
+  max_records_per_poll: 1000
+  dead_letter_queue_path: data/dead_letter_queue.jsonl
+
+redshift:
+  # Connection overridden by REDSHIFT_DSN env var in production
+  host: "${REDSHIFT_HOST:-localhost}"
+  port: 5439
+  database: "${REDSHIFT_DB:-dev}"
+  user: "${REDSHIFT_USER:-admin}"
+  s3_staging_bucket: "${S3_STAGING_BUCKET:-}"
+  iam_role: "${REDSHIFT_IAM_ROLE:-}"
+
+s3:
+  checkpoint_bucket: "${S3_CHECKPOINT_BUCKET:-}"
+  checkpoint_prefix: "checkpoints/"
+  checkpoint_local_path: data/checkpoints.json
+
+dbt:
+  project_dir: dbt/
+  profiles_dir: dbt/
+  target: dev
+
+airflow:
+  dag_id: ecommerce_pipeline
+  schedule_interval: "*/15 * * * *"
+  slack_webhook_conn_id: slack_webhook
+
+monitoring:
+  epm_yellow_threshold: 10
+  epm_red_threshold: 1
+  dlq_yellow_threshold: 50
+  dlq_red_threshold: 200
+  lag_yellow_seconds: 120
+  lag_red_seconds: 300
+
+sample_data:
+  n_orders: 1000
+  n_sessions: 5000
+  n_carts: 3000
+  seed: 42
+  output_dir: data/sample_events
