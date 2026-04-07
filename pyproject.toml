@@ -1,0 +1,53 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ecommerce-realtime-pipeline"
+version = "0.1.0"
+description = "Real-Time E-Commerce Analytics Pipeline: Kinesis → Redshift → dbt → Metabase"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic>=2.0",
+    "boto3>=1.34",
+    "psycopg2-binary>=2.9",
+    "faker>=24.0",
+    "structlog>=24.0",
+]
+
+[project.optional-dependencies]
+dbt = [
+    "dbt-core>=1.7",
+    "dbt-redshift>=1.7",
+]
+airflow = [
+    "apache-airflow>=2.8",
+    "apache-airflow-providers-slack>=8.0",
+]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=4.0",
+    "pytest-mock>=3.12",
+    "duckdb>=0.10",
+]
+all = [
+    "ecommerce-realtime-pipeline[dbt,airflow,dev]",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--cov=producer --cov=consumer --cov=storage --cov=monitoring --cov-report=term-missing --cov-report=html --cov-fail-under=80"
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+
+[tool.coverage.run]
+omit = [
+    "tests/*",
+    "orchestration/*",
+    "*/__init__.py",
+    "data/*",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["producer", "consumer", "storage", "monitoring"]

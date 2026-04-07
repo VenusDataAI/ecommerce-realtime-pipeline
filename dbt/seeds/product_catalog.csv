@@ -1,0 +1,101 @@
+product_id,product_name,category,brand
+PROD-0001,Wireless Noise-Cancelling Headphones,Electronics,SoundWave
+PROD-0002,Ergonomic Office Chair,Furniture,ComfortPlus
+PROD-0003,Stainless Steel Water Bottle 32oz,Sports,HydroMax
+PROD-0004,Organic Green Tea 100 Bags,Food & Beverage,NatureBrew
+PROD-0005,Running Shoes Men's Size 10,Sports,SpeedStep
+PROD-0006,Yoga Mat Non-Slip 6mm,Sports,ZenFlex
+PROD-0007,Smart LED Desk Lamp,Electronics,LumaTech
+PROD-0008,Ceramic Coffee Mug Set of 4,Kitchen,BrewHouse
+PROD-0009,Mechanical Keyboard TKL,Electronics,TypeMaster
+PROD-0010,Bamboo Cutting Board Large,Kitchen,EcoSlice
+PROD-0011,Vitamin D3 Supplement 5000IU,Health,VitaCore
+PROD-0012,Bluetooth Speaker Portable,Electronics,SoundWave
+PROD-0013,Cast Iron Skillet 12-inch,Kitchen,IronChef
+PROD-0014,Resistance Bands Set of 5,Sports,FitBand
+PROD-0015,Laptop Stand Adjustable Aluminum,Electronics,DeskPro
+PROD-0016,Scented Candle Lavender,Home,AromaGlow
+PROD-0017,Men's Slim Fit Chino Pants,Apparel,StyleCraft
+PROD-0018,Women's Running Leggings,Apparel,FlexFit
+PROD-0019,Air Purifier HEPA Filter,Home,CleanAir
+PROD-0020,Standing Desk Converter,Furniture,RiseUp
+PROD-0021,Protein Powder Chocolate 2lb,Health,MuscleFuel
+PROD-0022,Insulated Lunch Box,Kitchen,CoolPack
+PROD-0023,USB-C Hub 7-in-1,Electronics,HubMax
+PROD-0024,Weighted Blanket 15lbs,Home,DreamComfort
+PROD-0025,Stainless Steel Cookware Set 10pc,Kitchen,IronChef
+PROD-0026,Foam Roller for Muscle Recovery,Sports,RecoverX
+PROD-0027,Smart Watch Fitness Tracker,Electronics,TimeTech
+PROD-0028,Cold Brew Coffee Maker,Kitchen,BrewHouse
+PROD-0029,Acupressure Mat and Pillow,Health,ZenFlex
+PROD-0030,Portable Phone Charger 20000mAh,Electronics,ChargeFast
+PROD-0031,Wooden Chess Set Premium,Toys,GameOn
+PROD-0032,Aromatherapy Diffuser 500ml,Home,AromaGlow
+PROD-0033,Dumbbell Set Adjustable 50lbs,Sports,FitBand
+PROD-0034,Bamboo Toothbrush Set of 4,Health,EcoSmile
+PROD-0035,Planner Undated Hardcover,Office,WriteOn
+PROD-0036,Silk Pillowcase Queen,Home,DreamComfort
+PROD-0037,Espresso Machine Semi-Auto,Kitchen,BrewHouse
+PROD-0038,Gaming Mouse Wireless,Electronics,GameGear
+PROD-0039,Vitamin C Serum 30ml,Beauty,GlowLab
+PROD-0040,Backpack Hiking 40L,Sports,TrailMaster
+PROD-0041,French Press Coffee Maker,Kitchen,BrewHouse
+PROD-0042,Succulent Plant Set of 6,Home,GreenThumb
+PROD-0043,Noise Machine Sleep Aid,Home,SleepWell
+PROD-0044,Watercolor Paint Set 48 Colors,Art,ColorBurst
+PROD-0045,Electric Toothbrush Sonic,Health,EcoSmile
+PROD-0046,Puzzle 1000 Pieces Landscape,Toys,GameOn
+PROD-0047,Meditation Cushion Set,Health,ZenFlex
+PROD-0048,Stainless Steel Straws Set 8,Kitchen,EcoSlice
+PROD-0049,Reading Light Rechargeable,Home,LumaTech
+PROD-0050,Posture Corrector Adjustable,Health,AlignPro
+PROD-0051,Canvas Wall Art Set of 3,Home,ArtSpace
+PROD-0052,Meal Prep Containers 20pc,Kitchen,FreshKeep
+PROD-0053,Jump Rope Speed Cable,Sports,SpeedStep
+PROD-0054,Bath Bomb Set 12pc,Beauty,GlowLab
+PROD-0055,Wireless Charging Pad 15W,Electronics,ChargeFast
+PROD-0056,Herb Garden Kit Indoor,Home,GreenThumb
+PROD-0057,Memory Foam Seat Cushion,Furniture,ComfortPlus
+PROD-0058,Stainless Steel Food Scale,Kitchen,PrecisionWeigh
+PROD-0059,Men's Merino Wool Socks 6pk,Apparel,WoolComfort
+PROD-0060,Essential Oil Starter Set,Health,AromaGlow
+PROD-0061,Portable Blender Personal,Kitchen,BlendGo
+PROD-0062,Shoe Rack Bamboo 3-Tier,Furniture,EcoSlice
+PROD-0063,Cordless Vacuum Cleaner,Home,CleanAir
+PROD-0064,Whey Protein Isolate Vanilla,Health,MuscleFuel
+PROD-0065,Electric Kettle Glass 1.7L,Kitchen,BrewHouse
+PROD-0066,Coloring Book for Adults,Art,ColorBurst
+PROD-0067,Pull-Up Bar Doorway,Sports,FitBand
+PROD-0068,Shower Head High Pressure,Home,AquaFlow
+PROD-0069,Beeswax Wraps Set of 3,Kitchen,EcoSlice
+PROD-0070,Leather Journal Handmade,Office,WriteOn
+PROD-0071,Microfiber Towel Set Sport,Sports,TrailMaster
+PROD-0072,Facial Jade Roller Set,Beauty,GlowLab
+PROD-0073,Portable Solar Charger,Electronics,ChargeFast
+PROD-0074,Book Light LED Rechargeable,Home,LumaTech
+PROD-0075,Soy Candle Gift Set of 3,Home,AromaGlow
+PROD-0076,Infrared Thermometer,Health,VitaCore
+PROD-0077,Bamboo Fiber Bed Sheet Set,Home,DreamComfort
+PROD-0078,Reusable Produce Bags 15pk,Kitchen,EcoSlice
+PROD-0079,Men's Compression Shorts,Apparel,FlexFit
+PROD-0080,Wooden Spice Rack Wall Mount,Kitchen,EcoSlice
+PROD-0081,Neck Massager Electric,Health,AlignPro
+PROD-0082,Organic Matcha Powder 100g,Food & Beverage,NatureBrew
+PROD-0083,Resistance Loop Bands 5pk,Sports,FitBand
+PROD-0084,Polarized Sunglasses UV400,Apparel,ClearVision
+PROD-0085,Kombucha Starter Kit,Food & Beverage,NatureBrew
+PROD-0086,Folding Table Portable,Furniture,RiseUp
+PROD-0087,RFID Blocking Wallet Slim,Apparel,SecureWallet
+PROD-0088,Organic Turmeric Capsules,Health,VitaCore
+PROD-0089,Wooden Balancing Board,Sports,BalanceMaster
+PROD-0090,Silicone Baking Mats Set 2,Kitchen,BakeEase
+PROD-0091,Guided Meditation Cards,Health,ZenFlex
+PROD-0092,Plant-Based Protein Powder,Health,MuscleFuel
+PROD-0093,Adjustable Laptop Bag 15in,Office,CarryOn
+PROD-0094,Natural Loofah Sponge Set,Beauty,GlowLab
+PROD-0095,Portable Camping Hammock,Sports,TrailMaster
+PROD-0096,Gooseneck Kettle Pour-Over,Kitchen,BrewHouse
+PROD-0097,Motivational Desk Calendar,Office,WriteOn
+PROD-0098,Natural Deodorant Aluminum-Free,Health,EcoSmile
+PROD-0099,Cordless Handheld Massager,Health,AlignPro
+PROD-0100,Waterproof Bluetooth Earbuds,Electronics,SoundWave

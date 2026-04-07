@@ -1,0 +1,67 @@
+version: 2
+
+models:
+  - name: silver_orders
+    description: "Deduplicated and currency-normalised order events (latest per order_id)"
+    columns:
+      - name: order_id
+        description: "Unique order identifier (deduplicated)"
+        data_tests:
+          - not_null
+          - unique
+      - name: event_type
+        description: "Order lifecycle stage: order_placed | order_cancelled | order_refunded"
+        data_tests:
+          - not_null
+      - name: total_amount_usd
+        description: "Total order amount converted to USD using static exchange rates"
+      - name: currency
+        description: "Original ISO 4217 currency code"
+      - name: payment_method
+        description: "Payment method (credit_card, paypal, apple_pay, etc.)"
+      - name: country_code
+        description: "ISO 3166-1 alpha-2 country code"
+      - name: _transformed_at
+        description: "Timestamp when the silver transformation ran"
+
+  - name: silver_sessions
+    description: >
+      Deduplicated session events with computed duration and bounce flag.
+      One row per (session_id, event_type).
+    columns:
+      - name: session_id
+        description: "Session identifier"
+        data_tests:
+          - not_null
+      - name: event_type
+        description: "session_start | page_view | session_end"
+      - name: session_duration_seconds
+        description: "Seconds between session_start and session_end (NULL if no end event)"
+      - name: page_view_count
+        description: "Number of page_view events in this session"
+      - name: is_bounce
+        description: "TRUE if session_duration < 10s OR only 1 page_view"
+      - name: device_type
+        description: "desktop | mobile | tablet"
+      - name: _transformed_at
+        description: "Timestamp when the silver transformation ran"
+
+  - name: silver_cart_events
+    description: >
+      Deduplicated cart events with abandonment flag.
+      One row per (cart_id, product_id, event_type).
+    columns:
+      - name: cart_id
+        description: "Cart identifier"
+        data_tests:
+          - not_null
+      - name: event_type
+        description: "add_to_cart | remove_from_cart | cart_abandoned"
+      - name: product_id
+        description: "Product identifier"
+      - name: is_abandoned
+        description: "TRUE if cart has add_to_cart but no order_placed within 24h"
+      - name: unit_price
+        description: "Price per unit at time of cart action (USD)"
+      - name: _transformed_at
+        description: "Timestamp when the silver transformation ran"

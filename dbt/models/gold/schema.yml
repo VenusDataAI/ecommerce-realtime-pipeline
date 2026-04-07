@@ -1,0 +1,79 @@
+version: 2
+
+models:
+  - name: gold_revenue_daily
+    description: >
+      Daily revenue aggregated by country and payment method.
+      Use this model for revenue dashboards, trend analysis, and KPI reporting.
+      Incremental model — appends/merges each 15-minute pipeline run.
+    config:
+      meta:
+        metabase.display_name: "Daily Revenue Summary"
+    columns:
+      - name: date
+        description: "Calendar date (UTC) — primary time dimension"
+        data_tests:
+          - not_null
+      - name: country_code
+        description: "ISO 3166-1 alpha-2 country code (e.g. US, GB, BR)"
+      - name: payment_method
+        description: "Payment method used: credit_card | debit_card | paypal | apple_pay | google_pay | bank_transfer | crypto"
+      - name: total_orders
+        description: "Count of distinct placed orders on this date"
+      - name: total_revenue_usd
+        description: "Sum of order totals converted to USD — primary revenue metric"
+      - name: avg_order_value_usd
+        description: "Average order value in USD (AOV = total_revenue / total_orders)"
+      - name: refund_rate
+        description: "Fraction of orders refunded on this date (range 0.0–1.0)"
+      - name: _updated_at
+        description: "Timestamp of the last pipeline run that touched this row"
+
+  - name: gold_abandoned_cart_rate
+    description: >
+      Daily cart abandonment metrics. Use for funnel analysis,
+      recovery campaign targeting, and lost-revenue estimation.
+    config:
+      meta:
+        metabase.display_name: "Cart Abandonment Daily"
+    columns:
+      - name: date
+        description: "Calendar date (UTC)"
+        data_tests:
+          - not_null
+          - unique
+      - name: abandoned_carts
+        description: "Number of unique carts with no corresponding order_placed within 24h"
+      - name: converted_carts
+        description: "Number of carts that converted to a placed order"
+      - name: abandonment_rate_pct
+        description: "abandoned_carts / total_carts — cart abandonment rate (0.0–1.0)"
+      - name: revenue_lost_usd
+        description: "Estimated revenue lost (sum of abandoned cart values in USD)"
+      - name: _updated_at
+        description: "Timestamp of the last pipeline run that touched this row"
+
+  - name: gold_top_products
+    description: >
+      Daily top products by revenue with dense rank.
+      Use for merchandising decisions, promotions, and inventory planning.
+    config:
+      meta:
+        metabase.display_name: "Top Products Daily"
+    columns:
+      - name: date
+        description: "Calendar date (UTC)"
+        data_tests:
+          - not_null
+      - name: product_id
+        description: "Product identifier (joins to product_catalog seed)"
+      - name: product_name
+        description: "Human-readable product name from the product_catalog seed"
+      - name: units_sold
+        description: "Total units of this product sold on this date"
+      - name: total_revenue_usd
+        description: "Total revenue for this product in USD on this date"
+      - name: rank
+        description: "Dense rank by total_revenue_usd descending (1 = best seller of the day)"
+      - name: _updated_at
+        description: "Timestamp of the last pipeline run that touched this row"
