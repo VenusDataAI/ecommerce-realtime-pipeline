@@ -54,7 +54,7 @@ Three Pydantic v2 models:
 | `SessionEvent` | `session_id`, `page_url`, `device_type`, `referrer` |
 | `CartEvent` | `cart_id`, `product_id`, `quantity`, `unit_price` |
 
-## Quickstart (Local Mode — Zero AWS Needed)
+## Quickstart (Local Mode: Zero AWS Needed)
 
 ### 1. Install dependencies
 
@@ -75,9 +75,9 @@ EOF
 ```
 
 Files written to `data/sample_events/`:
-- `order_events.jsonl` — 1 000 order events
-- `session_events.jsonl` — 5 000 session events
-- `cart_events.jsonl` — 3 000 cart events
+- `order_events.jsonl`: 1 000 order events
+- `session_events.jsonl`: 5 000 session events
+- `cart_events.jsonl`: 3 000 cart events
 
 ### 3. Produce events
 
